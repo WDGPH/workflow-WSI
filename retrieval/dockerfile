@@ -1,0 +1,8 @@
+FROM python:3.9-bullseye
+
+RUN pip install --upgrade pip && pip install arcgis==2.0.*
+
+COPY getdata.py ./
+RUN chmod a+x /getdata.py
+
+ENTRYPOINT ["python", "./getdata.py"]
