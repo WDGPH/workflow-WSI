@@ -6,16 +6,16 @@ This containers is part of a data pipeline to automatically retrieve data from t
 Container images are built by Github actions, and pushed to Github's container registry. You can find up-to-date built images [here](https://github.com/orgs/WDGPH/packages?repo_name=workflow-WSI).
 
 ## Retrieval Container
-This container utilizes the [ArcGIS API Python Package](https://developers.arcgis.com/python/guide/install-and-set-up/) to authenticate to ArcGIS online, which is then used to download resources by item ID.
+This container downloads ArcGIS online items from a specified url.
 
 To use, `ARCGIS_USER` and `ARCGIS_PASSWORD` environment variables must be set for the container (credentials for WSI Data and Visualization Hub). It is strongly suggested that a secure key vault is utilized for this process and that credentials are rotated frequently. Additionally, the following arguments are required:
 
-**1. `item_id`**  
-ArcGIS Online item id. Changes with addition/removal of features to dataset requiring occasional updates.
-**Example**: `1a111aa1a1aa1a1aaaa1a111aa1a1aa1`
+**1. `url`**  
+ArcGIS Online item url. Changes with addition/removal of features to dataset requiring occasional updates.  
+**Example**: `https://services6.arcgis.com/ghjer345tert/arcgis/rest/services/PROD_PHU_Base_Aggregated/FeatureServer/0/query`
 
 **2. `output`**  
-The filename where the output will be written.
+The filename where the output will be written.  
 **Example**: `wsi.csv`
 
 ## Pipeline Orchestration
